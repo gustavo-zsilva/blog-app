@@ -1,0 +1,27 @@
+{
+  "name": "blog-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/gustavo-zsilva/blog-app.git",
+  "author": "Gustavo Zonta da Silva <gustavozontadasilva@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.1.0",
+    "axios": "^0.21.0",
+    "mongoose": "^5.11.6",
+    "next": "^10.0.3",
+    "postcss": "^8.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "typescript": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.11",
+    "@types/react": "^17.0.0"
+  }
+}
