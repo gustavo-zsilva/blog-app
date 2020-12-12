@@ -1,32 +1,48 @@
 import { useState, useEffect } from 'react';
-import { AxiosResponse } from 'axios';
 import api from '../services/api';
 
-const Index = () => {
-    // const [posts, setPosts] = useState<AxiosResponse>([]);
+interface PostProps {
+    id: String;
+    title: String;
+    message: String;
+    sender: String;
+    createdAt: String;
+}
 
-    const getPosts = async () => {
-        const response = await api.get('/posts');
-
-        console.log(response.data.data);
-        
-        // setPosts(response)
-    }
-
-    useEffect(() => {
-        getPosts();
-    }, [])
+const Index = ({ posts }) => {
 
     return (
-        <div>
-            <h1>Hello World</h1>
+        <div className="bg-gray-50">
+            <h1 className="">Hello World</h1>
 
+            
             {
                 // Iterar sobre array de posts
                 // do banco de dados e mostrá-los em tela.
+
+                posts.map((post: PostProps) => {
+                    return (
+                        <div key={post["_id"]}>
+                            <h2>{post.title}</h2>
+                            <p>{post.message}</p>
+                        </div>
+                    )
+                })
             }
         </div>
     );
+}
+
+export async function getServerSideProps(context) {
+    const response = await api.get('/posts');
+    const posts = response.data.data
+    
+
+    return {
+        props: {
+            posts
+        }
+    }
 }
 
 export default Index;
